@@ -5,12 +5,13 @@ import { connect } from 'react-redux'
 
 class ReviewsContainer extends Component {
 
-  reviews = this.props.reviews.filter(review => review.restaurantId === this.props.restaurant.id)
+  
   render() {
+    const reviews = this.props.reviews.filter(review => review.restaurantId === this.props.restaurant.id)
     return (
       <div>
-        <ReviewInput addReview={this.props.addReview} restaurant={this.props.restaurant}/>
-        <Reviews reviews={this.props.reviews} restaurant={this.props.restaurant} delete={this.props.delete}/>
+        <ReviewInput addReview={this.props.addReview} restaurantId={this.props.restaurant.id}/>
+        <Reviews reviews={reviews} restaurant={this.props.restaurant} delete={this.props.delete}/>
       </div>
     )
   }

@@ -15,7 +15,7 @@ class ReviewInput extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const review = {...this.state, id: uuid(), restaurantId: this.props.restaurant.id };
+    const review = {...this.state, id: uuid(), restaurantId: this.props.restaurantId };
     this.props.addReview(review)
     this.setState({
       text: ''

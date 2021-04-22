@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux';
+import uuid from 'uuid';
+
 
 const manageRestaurants = combineReducers({
     restaurants,
@@ -10,8 +12,12 @@ const manageRestaurants = combineReducers({
   function restaurants(state = [], action) {
     switch (action.type) {
         case 'ADD_RESTAURANT':
-          //console.log(state)
-          return  [...state, action.restaurant];
+          console.log(action.text)
+          const newRestaurant = {
+            text: action.text,
+            id:  uuid()
+          }
+          return  [...state, newRestaurant];
         case 'DELETE_RESTAURANT':
           //console.log(action)
           return state.filter(restaurant => restaurant.id !== action.id)

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import uuid from 'uuid';
 
 class RestaurantInput extends Component {
 
@@ -15,8 +14,7 @@ class RestaurantInput extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const restaurant = {...this.state, id: uuid() };
-    this.props.addRestaurant(restaurant)
+    this.props.addRestaurant(this.state)
     this.setState({
       text: ''
     });
